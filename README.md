@@ -25,4 +25,6 @@ divRenderer.set({
   y: 100,
   backgroundColor: '#f00'
 });
+
+divRenderer.get('x'); // 100
 ```
