@@ -1,13 +1,5 @@
 import { onFrameRender } from 'framesync';
-
-type State = { [key: string]: string | number };
-type Props = { [key: string]: string | number };
-type ChangedValues = string[];
-
-type Config = {
-  onRead: (key: string, props: Props) => any,
-  onRender: (state: State, props: Props, changedValues: ChangedValues) => void
-};
+import { State, Props, Config, ChangedValues } from './types';
 
 const createStyler({ onRead, onRender }: Config) => (props: Props) => {
   const state: State = {};
@@ -15,7 +7,13 @@ const createStyler({ onRead, onRender }: Config) => (props: Props) => {
   let hasChanged: boolean = false;
 
   const setValue = (key: string, value: any) => {
+    const currentValue = state[key];
+    state[key] = value;
 
+    if (state[key] !== currentValue) {
+      hasChanged = true;
+      changedValues.push(key);
+    }
   };
 
   const render = () => {
