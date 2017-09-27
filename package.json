@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "watch": "tsc -w",
+    "build": "tsc && webpack && npm run measure",
     "lint": "tslint -c tslint.json 'src/**/*.{ts}'",
     "test": "jest",
     "prepublish": "npm run lint && tsc"

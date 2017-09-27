@@ -1,7 +1,7 @@
 import { onFrameRender } from 'framesync';
 import { State, Props, Config, ChangedValues } from './types';
 
-const createStyler({ onRead, onRender }: Config) => (props: Props) => {
+const createStyler = ({ onRead, onRender }: Config) => (props: Props) => {
   const state: State = {};
   const changedValues: ChangedValues = [];
   let hasChanged: boolean = false;
