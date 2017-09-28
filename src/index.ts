@@ -1,8 +1,9 @@
 import css from 'css';
 import svg from 'svg';
-
-export styler from 'styler';
+import _createStyler from 'styler';
 
 export default function (node: SVGGraphicsElement | HTMLElement) {
   return (node instanceof SVGGraphicsElement) ? svg(node) : css(node);
 };
+
+export const createStyler = _createStyler;

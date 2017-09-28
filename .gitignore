@@ -3,6 +3,8 @@ css
 svg
 styler
 index.js
+index.d.ts
+index.js.map
 
 # Logs
 logs

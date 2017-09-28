@@ -2,13 +2,14 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  entry: './lib',
+  entry: './',
   output: {
     path: __dirname + '/dist',
     filename: 'stylefire.min.js'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    modules: [path.resolve(__dirname), 'node_modules']
   },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),

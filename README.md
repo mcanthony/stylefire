@@ -4,6 +4,7 @@ A high-performance get/set interface for performantly setting CSS, SVG, SVG path
 
 - **Universal:** Replaces the complicated SVG transform model with the simple CSS spec.
 - **Performant:** By default, a `set` schedules a job on the [Framesync](https://github.com/popmotion/framesync) `render` step. Subsequent `set`s fired that frame will batch.
+- **Compatible:** Detects and applies neccessary browser prefixes to CSS properties.
 - **Lightweight reads:** Only hits the DOM for a read if there's no cached value available .
 - **Sensible defaults:** `x: 100` -> `x: '100px'`, `rotateX: 100` -> `rotateX: '100deg'`
 - **Tiny:** 3kb max, and CSS, SVG, path and scroll stylers can all be imported seperately.

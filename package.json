@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "Performant, simplified stylers for CSS, SVG, path and DOM scroll.",
   "main": "index.js",
-  "types": "src/index.d.ts",
+  "types": "index.d.ts",
   "files": [
     "css",
     "svg",
-    "src/index.d.ts"
+    "index.js",
+    "styler",
+    "index.d.ts"
   ],
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc && webpack && npm run measure",
     "lint": "tslint -c tslint.json 'src/**/*.{ts}'",
     "test": "jest",
-    "prepublish": "npm run lint && tsc"
+    "measure": "gzip -c dist/stylefire.min.js | wc -c",
+    "prepublishOnly": "npm run lint && tsc"
   },
   "repository": {
     "type": "git",
@@ -37,7 +40,8 @@
   "devDependencies": {
     "jest": "^20.0.4",
     "ts-jest": "^20.0.10",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "webpack": "^3.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
