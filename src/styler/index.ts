@@ -1,7 +1,7 @@
 import { onFrameRender } from 'framesync';
 import { State, Props, Config, ChangedValues } from './types';
 
-const createStyler = ({ onRead, onRender }: Config) => (props: Props) => {
+const createStyler = ({ onRead, onRender }: Config) => (props: Props = { cache: true }) => {
   const state: State = {};
   const changedValues: ChangedValues = [];
   let hasChanged: boolean = false;
@@ -23,7 +23,7 @@ const createStyler = ({ onRead, onRender }: Config) => (props: Props) => {
   return {
     get: function (key: string) {
       return (key)
-        ? (state[key] !== undefined)
+        ? (props.cache && state[key] !== undefined)
           ? state[key]
           : onRead(key, props)
         : state;
