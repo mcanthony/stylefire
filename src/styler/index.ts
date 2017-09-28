@@ -9,7 +9,6 @@ const createStyler = ({ onRead, onRender }: Config) => (props: Props = { cache: 
   const setValue = (key: string, value: any) => {
     const currentValue = state[key];
     state[key] = value;
-
     if (state[key] !== currentValue) {
       hasChanged = true;
       changedValues.push(key);
@@ -33,7 +32,7 @@ const createStyler = ({ onRead, onRender }: Config) => (props: Props = { cache: 
         setValue(values, value);
       } else {
         for (const key in values) {
-          setValue(key, values[value]);
+          setValue(key, values[key]);
         }
       }
 

@@ -2,6 +2,9 @@
 css
 svg
 styler
+global.js
+global.d.ts
+global.js.map
 index.js
 index.d.ts
 index.js.map

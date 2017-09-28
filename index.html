@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script src="dist/stylefire.min.js"></script>
+    <style>
+      .box {
+        background: red;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      styler(document.querySelector('div')).set({
+        background: '#0f0',
+        rotate: 45,
+        scale: .5,
+        x: 200,
+        y: 200,
+        borderRadius: 10
+      });
+    </script>
+  </body>
+</html>
