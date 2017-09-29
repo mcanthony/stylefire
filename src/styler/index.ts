@@ -1,12 +1,13 @@
 import { onFrameRender } from 'framesync';
 import { State, Props, Config, ChangedValues } from './types';
 
-const createStyler = ({ onRead, onRender }: Config) => (props: Props = { cache: true }) => {
+const createStyler = ({ onRead, onRender, aliasMap = {} }: Config) => (props: Props = { cache: true }) => {
   const state: State = {};
   const changedValues: ChangedValues = [];
   let hasChanged: boolean = false;
 
-  const setValue = (key: string, value: any) => {
+  const setValue = (unmappedKey: string, value: any) => {
+    const key = aliasMap[unmappedKey] || unmappedKey;
     const currentValue = state[key];
     state[key] = value;
     if (state[key] !== currentValue) {
@@ -20,7 +21,8 @@ const createStyler = ({ onRead, onRender }: Config) => (props: Props = { cache: 
   };
 
   return {
-    get: function (key: string) {
+    get: function (unmappedKey: string) {
+      const key = aliasMap[unmappedKey] || unmappedKey;
       return (key)
         ? (props.cache && state[key] !== undefined)
           ? state[key]

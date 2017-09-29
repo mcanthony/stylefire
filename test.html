@@ -30,18 +30,14 @@
     <script>
       styler(document.querySelector('div')).set({
         background: '#0f0',
+        transformOrigin: '100% 100%',
         rotate: 45,
-        scale: .5,
-        x: 200,
-        y: 200,
-        borderRadius: 10
       });
       styler(document.querySelector('rect')).set({
         fill: '#0f0',
-        ry: 10,
-        rx: 10,
-        x: 200,
-        y: 200
+        originX: 100,
+        originY: 100,
+        rotate: 45
       });
     </script>
   </body>
